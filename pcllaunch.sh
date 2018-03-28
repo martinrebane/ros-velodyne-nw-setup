@@ -4,8 +4,11 @@
 # and connect to Velodyne VLP-16 LIDAR, and
 # will launch pointcloud capture 
 
+################ CONFIGURATION ###################
+## change here if your configuration is different 
 STATIC_IP="192.168.1.100"
 LIDAR_IP="192.168.1.201"
+############### END OF CONFIG ####################
 
 echo "Plug in ethernet cable for the LiDAR and switch off WIFI. Press any key when done."
 
