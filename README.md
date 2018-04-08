@@ -8,6 +8,13 @@
 	./pcllaunch.sh
 ```
 
-Make sure the path to the scipt is relative to in which folder you are currently.
+Make sure the path to the scipt is relative to the folder where you are currently working from.
 
 Network is configured, now lauch pointcloud capture :)
+
+## What does it do?
+
+1. It lets you quickly select the network interface to use for LIDAR
+2. It assigns STATIC_IP to the selected interface
+3. It routes requests to LIDAR_IP to network interface
+4. It makes all of the above quick and easy, providing reasonable default values
