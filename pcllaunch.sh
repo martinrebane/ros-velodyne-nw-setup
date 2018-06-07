@@ -34,6 +34,7 @@ read -s -n 1 key
 if [[ $key =~ ^(q|Q)$ ]]; then 
 	filename=$(basename $0)
 	echo "Bye-bye, see you soon. You can edit this file using: nano $filename"
+	exit 1
 fi
 
 $(sudo ifconfig $INTERFACE $STATIC_IP)
