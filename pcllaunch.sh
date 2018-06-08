@@ -14,11 +14,11 @@ echo "Plug in ethernet cable for the LiDAR and switch off WIFI. Press any key wh
 
 read -s -n 1 key
 
-echo "Lets assign a static IP for your ethernet adapter. Please select your network interface from the list"
+echo "Lets assign a static IP for your ethernet adapter. Please select your network interface from the list and press ENTER"
 
 ip -o link show | awk -F ': ' '{print $2 " - press " $1}'
 
-read -s -n 1 key
+read key
 
 INTERFACE=$(ip -o link show | awk "NR==$key" | awk -F ': ' '{print $2}')
 echo "---------------------------------------------------"
@@ -41,7 +41,7 @@ $(sudo ifconfig $INTERFACE $STATIC_IP)
 
 echo "Static IP of $INTERFACE set to $STATIC_IP"
 
-IP_RESULT=$(ifconfig enp59s0 | grep -B1 $STATIC_IP | grep -o "^\w*")
+IP_RESULT=$(ifconfig $INTERFACE | grep -B1 $STATIC_IP | grep -o "^\w*")
 
 if [[ $INTERFACE==$IP_RESULT ]]; then
 	echo "$(tput setaf 2)SUCCESS!$(tput sgr 0)"
